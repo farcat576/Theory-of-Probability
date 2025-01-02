@@ -9,67 +9,10 @@
 
 \setcounter{diagheight}{50}
 \begin{chart}
-\reqhalfcourse 20,45:{Ch \ref*{ch:group_intro},\ref*{ch:homomorphisms_quotient}-\ref*{ch:flavors_rings}}{\hyperref[part:absalg]{Abs Alg}}{}
-\reqhalfcourse 55,45:{Ch \ref*{ch:metric_space},\ref*{ch:metric_properties}-\ref*{ch:compactness}}{\hyperref[part:basictop]{Topology}}{}
-\halfcourse 33,45:{Ch \ref*{ch:vector_spaces}-\ref*{ch:duals_adjoint_transposes},\ref*{ch:PID_structure_theorem}}{\hyperref[part:linalg]{Lin Alg}}{}
-\halfcourse 5,35:{Ch \ref*{ch:group_actions}}{\hyperref[part:groups]{Grp Act}}{}
-\halfcourse 5,24:{Ch \ref*{ch:sylow}}{\hyperref[ch:sylow]{Grp Classif}}{}
-\halfcourse 30,35:{Ch \ref*{ch:representations_of_algebras}-\ref*{ch:applications}}{\hyperref[part:repth]{Rep Th}}{}
-\halfcourse 45,43:{Ch \ref*{ch:quantum_states_and_measurements}-\ref*{ch:shors_algorithm}}{\hyperref[part:quantum]{Quantum}}{}
-\halfcourse 64,38:{Ch \ref*{ch:calc_limits}-\ref*{ch:riemann_integrals}}{\hyperref[part:calc]{Calc}}{}
-\halfcourse 64,30:{Ch \ref*{ch:holomorphic_functions}-\ref*{ch:abel_ruffini_theorem}}{\hyperref[part:cmplxana]{Cmplx Ana}}{}
-\halfcourse 55,20:{Ch \ref*{ch:measure_space}-\ref*{ch:pontryagin}}{\hyperref[part:measure]{Measure/Pr}}{}
-\halfcourse 48,28:{Ch \ref*{ch:multivar_calculus}-\ref*{ch:line_bundles}}{\hyperref[part:diffgeo]{Diff Geo}}{}
-\halfcourse 40,10:{Ch \ref*{ch:algebraic_integers}-\ref*{ch:galois_theory}}{\hyperref[part:algnt1]{Alg NT 1}}{}
-\halfcourse 40,0:{Ch \ref*{ch:finite_fields}-\ref*{ch:artin_reciprocity}}{\hyperref[part:algnt2]{Alg NT 2}}{}
-\halfcourse 23,10:{Ch \ref*{ch:top_constructions}-\ref*{ch:covering_projections}}{\hyperref[part:algtop1]{Alg Top 1}}{}
-\halfcourse 20,28:{Ch \ref*{ch:cats}-\ref*{ch:abelian_categories}}{\hyperref[part:cats]{Cat Th}}{}
-\halfcourse 23,0:{Ch \ref*{ch:singular_homology}-\ref*{ch:application_of_cohomology}}{\hyperref[part:algtop2]{Alg Top 2}}{}
-\halfcourse 6,10:{Ch \ref*{ch:affine_varieties}-\ref*{ch:morphisms_of_varieties}}{\hyperref[part:ag1]{Alg Geo 1}}{}
-\halfcourse 6,0:{Ch \ref*{ch:sheaves_and_ringed_spaces}-\ref*{ch:morphisms_of_locally_ringed_spaces}}{\hyperref[part:ag2]{Alg Geo 2-3}}{}
-\reqhalfcourse 5,45:{Ch \ref*{ch:zorn}-\ref*{ch:break_CH}}{\hyperref[part:st1]{Set Theory}}{}
+\reqhalfcourse 20,45:{Ch \ref*{ch:sets}-\ref*{ch:abel_ruffini_theorem}}{\hyperref[part:startout]{Set Systems}}{}
+\halfcourse 30,35:{Ch \ref*{ch:measure_space}-\ref*{ch:pontryagin}}{\hyperref[part:measure]{Basic Measure Theory}}{}
 
-%% Basic alg ch
-\prereqc 20,45,30,35;0:    % Abs Alg -> Rep Th
-\coreqc  20,45,33,45;0:    % Abs Alg -> Lin Alg
-\prereqc 33,45,30,35;0:    % Lin Alg -> Rep Th
-\prereqc 33,45,45,43;0:    % Lin Alg -> Quantum
-%% Category theory
-\prereqc 20,45,20,28;0:    % Grp -> Cat Th
-\coreqc  20,45,20,28;0:    % Abs Alg -> Cat Th
-\coreqc  33,45,20,28;80:   % Lin Alg -> Cat Th
-\coreqc  55,45,20,28;-40:  % Top -> Cat Th
-\coreqc  20,28,30,35;0:    % Cat Th -> Rep Th
-%% Group theory chain
-\prereqc 20,45,5,35;0:     % Grp -> Grp Act
-\prereqc  5,35,5,24;0:     % Grp Act -> Grp Class
-%% Analysis chain
-\prereqc 33,45,48,28;30:   % Lin Alg -> Diff Geo
-\prereqc 55,45,64,38;0:    % Top -> Diff Geo
-\coreqc  64,38,48,28;50:   % Calc -> Diff Geo
-\prereqc 55,45,48,28;10:   % Top -> Diff Geo
-\prereqc 55,45,64,38;0:    % Top -> Calc
-\coreqc  64,38,64,30;0:    % Calc -> Cmplx Ana
-\prereqc 55,45,64,30;-10:  % Top -> Cmplx Ana
-\coreqc  23,10,64,30;0:    % AT1 -> Cmplx Ana
-\prereqc 55,45,55,20;0:    % Top -> Meas/Pr
-\coreqc  64,38,55,20;50:   % Calc -> Meas/Pr
-%% Alg Geom
-\prereqc 6,10,6,0;0:       % AG1 -> AG2
-\prereqc 20,45,6,10;0:     % Abs Alg -> AG1
-\prereqc 55,45,6,10;-40:   % Top -> AG1
-\coreqc  20,28,6,10;0:     % Cat Th -> AG1
-\prereqc 20,28,6,0;-18:    % Cat -> AG2
-%% Alg Top
-\prereqc 23,10,23,0;0:     % AT1 -> AT2
-\prereqc 55,45,23,10;0:    % Top -> AT1
-\prereqc  5,35,23,10;20:   % Grp Act -> AT1
-\coreqc 23,10,20,28;20:    % AT1 -> Cat
-\prereqc 20,28,23,0;-190:  % Cat -> AT2
-%% Alg NT
-\prereqc 40,10,40,0;0:     % ANT1 -> ANT2
-\prereqc 20,45,40,10;-40:  % Abs Alg -> ANT1
-\prereqc 33,45,40,10;50:   % Lin Alg -> ANT1
-\prereqc  5,35,40,0;10:    % Grp Act -> ANT2
+%% Session I
+\prereqc 20,45,30,35;0:    % Sets -> Measures
 \end{chart}
 \egroup

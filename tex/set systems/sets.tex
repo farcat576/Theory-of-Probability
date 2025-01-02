@@ -1,0 +1,82 @@
+\chapter{Sets}
+\label{ch:sets}
+
+\section{Lecture 0}
+
+If we are to believe Wikipedia blindly, then
+\begin{quote}
+	In mathematics, a set is a collection of different things; these things are called elements or members of the set and are typically mathematical objects of any kind: numbers, symbols, points in space, lines, other geometrical shapes, variables, or even other sets.
+\end{quote}
+
+\begin{example}
+	[Famous sets]
+	Some sets you must have seen by now:
+	\begin{enumerate}
+	\item Natural Numbers: $\NN$
+	\item Integers: $\ZZ$
+	\item Rational Numbers: $\QQ$
+	\item Real Numbers: $\RR$
+	\item Complex Numbers: $\CC$
+	\end{enumerate}
+\end{example}
+
+\begin{abuse}
+	We have progressed from the age of Bhimbetka. So no proof by pictures, Venn diagrams, or any other form of
+	doodling. You are however encouraged to draw pictures to gain intuition.
+\end{abuse}
+
+Assuming one has done high school mathematics or gone through the required \hyperref[ch:sets_functions]{notation to be followed}, we will refresh our set theory basics with a couple of exercises
+
+\section{\problemhead}
+
+\begin{problem}
+	 Define the symmetric difference between two sets as $A \Delta B \triangleq(A \backslash B) \cup(B \backslash A)$. Show that:
+	 \begin{enumerate}[a)]
+		\item $A \Delta B=(A \cup B) \backslash(A \cap B)$.
+		\item $A \backslash(A \Delta B)=A \cap B$.
+	\end{enumerate}
+	\begin{hint}
+		Tbdl
+	\end{hint}
+	\begin{sol}
+		Tbdl
+	\end{sol}
+\end{problem}
+
+\begin{problem}
+	If $A \subseteq B$ and $C \subseteq D$, then prove that $(A \cap C) \cup(B \cap D)=B \cap D$.
+\end{problem}
+
+\begin{problem}
+	Let $I$ be any set, and consider the collection of sets $\left\{A_{i}: i \in I\right\}$. Show that for any other set $B, B \cap\left(\cap_{i \in I} A_{i}\right)=\cap \cap_{i \in I}\left(B \cap A_{i}\right)$. Hence prove $B \backslash \cup_{i \in I} A_{i}=\cap_{i \in I}\left(B \backslash A_{i}\right)$.
+\end{problem}
+
+\begin{problem}
+	Prove the following:
+	\begin{enumerate}[a)]
+	\item $\cap_{n=1}^{\infty}\left(-\frac{1}{n}, \frac{1}{n}\right)=\{0\}$.
+	\item $\cap_{n=1}^{\infty}\left[1-\frac{1}{n}, \infty\right)=[1, \infty)$.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Consider the function $f: X \rightarrow Y$, and let $A \subseteq X$ and $B \subseteq Y$. Define the generalised inverse of $f$ by $f^{-1}(B)=\{x \in$ $X: f(x) \in B\}$. Also, define $f(A)=\{y \in Y: \exists x \in A$ such that $f(x)=y\}$.
+	\begin{enumerate}[a)]
+	\item Show that $f^{-1}\left(B_{1} \cup B_{2}\right)=f^{-1}\left(B_{1}\right) \cup f^{-1}\left(B_{2}\right), \forall B_{1}, B_{2} \subseteq Y$.
+	\item Show that $f^{-1}\left(B_{1} \cap B_{2}\right)=f^{-1}\left(B_{1}\right) \cap f^{-1}\left(B_{2}\right), \forall B_{1}, B_{2} \subseteq Y$.
+	\item Show that $A \subseteq f^{-1}(f(A))$. Give an example to show that the inclusion can be strict.
+	\item Show that $f\left(f^{-1}(B)\right) \subseteq B$. Show that equality holds if $f$ is surjective.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}
+	Consider a function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$. Let $A_{i} \subseteq \mathbb{R}, 1 \leq i \leq n$.
+	\begin{enumerate}[a)]
+	\item Show that $f\left(\times_{i=1}^{n} A_{i}\right) \subseteq f\left(A_{1} \times \mathbb{R} \times \ldots \times \mathbb{R}\right) \cap f\left(\mathbb{R} \times A_{2} \times \ldots \times \mathbb{R}\right) \cap \ldots \cap f\left(\mathbb{R} \times \mathbb{R} \times \ldots \times A_{n}\right)$.
+	\item Provide an example to show that the inclusion can be strict.
+	\end{enumerate}
+\end{problem}
+
+\begin{problem}[Final boss: (Bradley, if you happen to be a Fullmetal Alchemist fan)]
+	Define the set $T_{n} \triangleq \cup_{i=0}^{n-1}\left[\frac{i}{n}, \frac{i+1}{n}\right] \times\left[0,1-\frac{i}{n}\right]$. Show that $\cap_{n \in \mathbb{N}} T_{n}=\left\{(x, y) \in \mathbb{R}^{2}: x+y \leq 1, x \geq 0, y \geq 0\right\}$.
+\end{problem}
