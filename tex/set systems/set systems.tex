@@ -1,0 +1,122 @@
+\chapter{Set Systems}
+\label{ch:set systems}
+
+\section{Lecture 1 (August 12 2024)}
+\begin{definition}[$\sigma$-algebra]
+	Let $\Omega \neq \phi$ be an arbitrary set, then $\mathcal F$ is called a $\sigma$-algebra/$\sigma$-field if the following are true:
+	\begin{enumerate}[i)]
+		\item $\Omega \in \mathcal F$
+		\item $A \in \mathcal F \implies A^C \in \mathcal F$
+		\item $\forall \{A_n\}_{n \in \NN}$ such that $A_n \in \mathcal F$ $\forall n \in \NN$, $\cup_{n \in \NN} A_n \in \mathcal F$
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	If iii) only holds for finite unions, it is called a algebra/field.
+\end{remark}
+
+\begin{lemma}
+	Let $\mathcal F \subseteq 2^\Omega$ be a $\sigma$-algebra, then:
+	\begin{enumerate}[i)]
+		\item For some $ n \in \NN$, $A_i \in \mathcal F$ for $1\leq i \leq n \implies \cup_{i=1}^n A_i \in \mathcal F$
+		\item $\forall n \in \NN$, $A_n \in \mathcal F \implies \cap_{n \in \NN} A_n \in \mathcal F$
+		\item $A,B \in \mathcal F \implies A \setminus B \in \mathcal F$
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\begin{enumerate}[i)]
+		\item Define $\{B_k\}_{k \in \NN}$ such that $B_k=\begin{cases}
+			A_k & 1\leq k \leq n \\
+			\phi & k>n 
+			\end{cases}$ (Since $\Omega \in \mathcal F$, $\Omega^C=\phi \in \mathcal F$) \\
+			We are done as $\cup_{k \in \NN} B_k=\cup_{i=1}^n A_i \in \mathcal F$
+		\item Define $\{B_k\}_{k \in \NN}$ such that $B_k=A_k^C$ for $k \in \NN$ (Since $A_k \in \mathcal F$, $A_k^C \in \mathcal F$) \\
+			We are done as $\cap_{k \in \NN} B_k=\cup_{k \in \NN} A_k^C \in \mathcal F$ and $\cup_{k \in \NN} A_k=(\cup_{k \in \NN} A_k^C)^C \in \mathcal F$
+		\item $A \setminus B = A \cap B^C$ which trivially belongs in $\mathcal F$ by the definition of a $\sigma$-algebra and ii)
+	\end{enumerate}
+\end{proof}
+
+\begin{lemma}
+	Let $F_\alpha$, $\alpha \in I$, be a $\sigma$-algebra over $\Omega$, where $I$ is an arbitrary index set, then $F \coloneqq \cap_{\alpha \in I} F_\alpha$ is also a $\sigma$-algebra
+\end{lemma}
+
+\begin{proof}
+	Let us verify the properties of a $\sigma$-algebra one by one:
+	\begin{enumerate}[i)]
+		\item $\Omega \in \mathcal F_\alpha$ $\forall \alpha \in I$ $\implies \Omega \in  \cap_{\alpha \in I} F_\alpha$
+		\item $A \in \mathcal F \implies A \in \mathcal F_\alpha$ $\forall \alpha \in I$ and $A \in \mathcal F_\alpha \implies A^C \in \mathcal F_\alpha$ $\forall \alpha \in I$ \\
+		Since $A^C \in \mathcal F_\alpha$ $\forall \alpha \in I$, $A^C \in \cap_{\alpha \in I} F_\alpha = \mathcal F$
+		\item $A_n \in \mathcal F \implies A_n \in \mathcal F_\alpha$ $\forall n \in \NN,\alpha \in I$ and $A_n \in \mathcal F_\alpha \,\forall n \in \NN \implies \cup_{n \in \NN} A \in \mathcal F_\alpha$ $\forall \alpha \in I$ \\
+		Since $\cup_{n \in \NN} A \in \mathcal F_\alpha$ $\forall \alpha \in I$, $\cup_{n \in \NN} A \in \cap_{\alpha \in I} F_\alpha = \mathcal F$
+	\end{enumerate}
+\end{proof}
+
+\begin{definition}[Generated $\sigma$-algebra]
+	Let $A \subseteq 2^\Omega$, then $\displaystyle \sigma(A) \coloneqq \bigcap_{\substack{\mathcal F \in 2^\Omega \\ \mathcal F \text{ is a }\sigma-\text{algebra} \\ A \subseteq \mathcal F}} \mathcal F$
+\end{definition}
+
+\begin{definition}[Ring]
+	$\mathcal F \subseteq 2^\Omega$ is a ring if:
+	\begin{enumerate}[i)]
+		\item $\phi \in \mathcal F$
+		\item $A,B \in \mathcal F \implies A \setminus B \in \mathcal F$
+		\item $A,B \in \mathcal F \implies A \cup B \in \mathcal F$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Semiring]
+	$\mathcal F \subseteq 2^\Omega$ is a semiring if:
+	\begin{enumerate}[i)]
+		\item $\phi \in \mathcal F$
+		\item $A,B \in \mathcal F \implies A \cap B \in \mathcal F$
+		\item $A,B \in \mathcal F \implies \exists k \in \mathbb{N}$ such that $\exists \{E_i\}_{i=1}^k \in \mathcal F$ such that $E_i \cap E_j = \phi$ and $\cup_{i=1}^k E_i = B \setminus A$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Semiring]
+	$\mathcal F \subseteq 2^\Omega$ is a semiring if:
+	\begin{enumerate}[i)]
+		\item $\phi \in \mathcal F$
+		\item $A,B \in \mathcal F \implies A \cap B \in \mathcal F$
+		\item $A,B \in \mathcal F \implies \exists k \in \mathbb{N}$ such that $\exists \{E_i\}_{i=1}^k \in \mathcal F$ such that $E_i \cap E_j = \phi$ and $\cup_{i=1}^k E_i = B \setminus A$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[$\lambda$-system]
+	$\mathcal F \subseteq 2^\Omega$ is a $\lambda$-system if:
+	\begin{enumerate}[i)]
+		\item $\Omega \in \mathcal F$
+		\item $A,B \in \mathcal F$ such that $A \subseteq B \implies B \setminus A \in \mathcal F$
+		\item $A_n \in \mathcal F, n \geq 1$ and $A_i \cap A_j = \phi$ $\forall i \neq j$ $\implies \cup_{n \geq 1} A_n \in \mathcal F$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[$\pi$-system]
+	$\mathcal F \subseteq 2^\Omega$ is a $\pi$-system if $A, B \in \mathcal F \implies A \cap B \in \mathcal F$
+\end{definition}
+
+\begin{lemma}
+	Every ring is a semiring
+\end{lemma}
+
+\begin{proof}
+	Let $\mathcal F \subseteq 2^\Omega$ be a ring. \\
+	It is easy to see that $\phi \in \mathcal F$ and $B \setminus A \in \mathcal F$ if $A,B \in \mathcal F$ by definition. \\
+	We just need to prove that if $A,B \in \mathcal F$, then $A \cap B \in \mathcal F$ which follows from the fact that $A \cap B = A\setminus (A \setminus B)$
+\end{proof}
+
+\begin{lemma}
+	Let $\mathcal{F} \subseteq 2^\Omega$ be both a $\lambda$-system and a $\pi$-system. Then $\mathcal F$ is a $\sigma$-algebra
+\end{lemma}
+
+\begin{proof}
+	Firstly, $\Omega \in \mathcal F$ and $\mathcal F$ is a $\lambda$-system. \\
+	Next let $A \in \mathcal F$ and then $A^C = \Omega \setminus A \in \mathcal F$ as $A \subseteq \Omega$ and $A, \Omega \in \mathcal F$ \\
+	Finally let $A_n \in \mathcal F$, $n \geq 1$ and subsequently define $B_n=A_n \setminus \cup_{i=1}^{n-1} A_i=A_n \cap (\cup_{i=1}^{n-1} A_i)^C= A_n \cap (\cap_{i=1}^{n-1} A_i^C)$ for $n \in \NN$ \\
+	Since we had already shown that $A_n^C \in \mathcal F$ $\forall n \in \NN$ and since $\mathcal F$ is a $\pi$-system, we have $B_n \in \mathcal F$ $\forall n \in \NN$ \\
+	Furthermore, $B_n \cap B_m = \phi$ if $n \neq m$ and since $\mathcal F$ is a $\lambda$-system, $\cup_{n \geq 1} A_n=\cup_{n \geq 1} B_n \in \mathcal F$
+	\vspace{10pt}
+	
+	Hence, $\mathcal F$ is a $\sigma$-algebra.
+\end{proof}
