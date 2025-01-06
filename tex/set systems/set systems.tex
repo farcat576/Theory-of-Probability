@@ -120,3 +120,73 @@
 	
 	Hence, $\mathcal F$ is a $\sigma$-algebra.
 \end{proof}
+
+\section{Lecture 2 (August 14 2024)}
+
+\begin{definition}[Measure and Measurable space]
+	For any non-empty set $\Omega$, $(\Omega,\mathcal F)$ is a measurable space for a $\sigma$-algebra $\mathcal F$ over $\Omega$ and $\mu : \mathcal F \to [0,\infty]$ is called a measure on $(\Omega, \mathcal F)$, if:
+	\begin{enumerate}[a)]
+		\item $\mu(\phi)=0$
+		\item $A_n \in \mathcal F$, $n \geq 1$ such that $A_n \cap A_m = \phi$ if $n \neq m \implies \mu(\cup_{n \geq 1} A_n) = \sum_{n \geq 1} \mu(A_n)$
+	\end{enumerate}
+	If $\mu(Omega)=1$, $\mu$ is also a probability measure
+\end{definition}
+
+\begin{theorem}[$\pi$-$\lambda$ Theorem]
+	If $\mathcal P,\mathcal L \subseteq 2^\Omega$ such that $\mathcal P$ is a $\pi$-system, $\mathcal L$ is a $\lambda$-system and $\mathcal P \subseteq \mathcal L$, then $\sigma(\mathcal P) \subseteq \mathcal L$
+\end{theorem}
+
+\begin{proof}
+	Define $\displaystyle \mathcal L_0 \coloneqq \bigcap_{\substack{\mathcal P \subseteq \mathcal L' \subseteq 2^\Omega \\ \mathcal L' \text{ is a $\lambda$-system}}} \mathcal L'$, which is also a $\lambda$-system with $\mathcal P \subseteq \mathcal L_0 \subseteq \mathcal L$
+	\vspace{10pt}
+	
+	In order to show that $\mathcal L_0$ is a $\pi$-system, we define $\mathcal L_A \coloneqq \{B \in \mathcal L_0 \mid A \cap B \in \mathcal L_0\}$ for every $A \subseteq \mathcal L_0$. For every $A \subseteq \mathcal L_0$, notice that $\mathcal L_A \subseteq \mathcal L_0$ by definition. Note that $\mathcal L_A$ is a $\sigma$-algebra since:
+	\begin{enumerate}[i)]
+		\item $A \cap \Omega=A \in \mathcal L_0 \implies \Omega \in \mathcal L_A$
+		\item $\forall B,C \in \mathcal L_A$ such that $B \subseteq C$ \\
+		$\implies	(A \cup B),(A \cup C) \in \mathcal L_0$ with $A \cap B \subseteq A \cap C \implies (A \cap C)\setminus (A \cap B) \in \mathcal L_0$
+		\begin{align*}
+			()A \cap C)\setminus (A \cap B) &= (A \cap C) \cap (A \cap B)^C \\
+			&= (A \cap C) \cap (A^C \cup B^C) \\
+			&= (A^C \cap A \cap C) \cup (B^C \cap A \cap C) \\
+			&= A \cap (C \setminus B) \in \mathcal L_0 \\
+			&\implies C\setminus B \in \mathcal L_A
+		\end{align*}
+		\item $A_n \in \mathcal L_A$, $n \geq 1$ such that $A_n \cap A_m = \phi$ for $n \neq m$ \\
+		$\implies A_n \cap A \in \mathcal L_0$ such that $(A_n \cap A) \cap (A_m \cap A) = \phi$ for $n \neq m$ \\
+		$\implies \cup_{n \geq 1} (A_n \cap A) = A \cap (\cup_{n \geq 1} A_n) \in \mathcal L_0 \implies \cup_{n \geq 1} A_n \in \mathcal L_A$
+	\end{enumerate}
+	
+	If $\forall A \in \mathcal L_0$, $\mathcal P \subseteq \mathcal L_A$ then we are done \\
+	Else if $A \in \mathcal P$, let $B \in \mathcal P$
+	\begin{align*}
+		A \cap B \in \mathcal P \subseteq \mathcal L_0 &\implies A \cap B \in \mathcal L_0 \\
+		&\implies B \in \mathcal L_0 \\
+		&\implies P \subseteq \mathcal L_0 \\
+		&\implies \mathcal L_A = \mathcal L_0
+	\end{align*}
+	Else if  $A \in \mathcal L_0 \setminus \mathcal P$, let $B \in \mathcal P$
+	\begin{align*}
+		\mathcal L_b = \mathcal L_0 &\implies A \cap B \in \mathcal L_0 \\
+		&\implies B \in \mathcal L_A \\
+		&\implies \mathcal P \subseteq \mathcal L_A
+	\end{align*}
+\end{proof}
+
+\begin{definition}[Topological space]
+	$(\Omega, \tau)$ ($\tau \subseteq 2^\Omega$) if:
+	\begin{enumerate}[i)]
+		\item $\Omega, \phi \in \tau$
+		\item $O_n \in \tau$ for $n \in I$ $\implies$ $\cup_{n \in I} O_n \in \tau$
+		\item $O_i \in \tau$ for $1 \leq i \leq n$ where $n \in \NN$ $\implies$ $\cap_{i=1}^n O_i \in \tau$
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}[Borel $\sigma$-algebra]
+	For a topological space $(\Omega, \tau)$, $\sigma(\tau)$ is called the Borel $\sigma$-algebra for the topological space (often denoted as $\mathcal B(\Omega)$)
+\end{definition}
+
+\begin{example}
+	[$\mathcal B(\RR^n)$]
+	$\mathcal B(\RR^n)$ is the Borel $\sigma$-algebra for $\RR^n$ under the usual topology, i.e. $\mathcal B(\RR^n)=\sigma(\text{Open subsets of }\RR^n,\text{usual topology})$
+\end{example}
